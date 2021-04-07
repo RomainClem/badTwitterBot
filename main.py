@@ -4,9 +4,9 @@ import random
 from datetime import datetime
 
 # Authenticate to Twitter
-auth = tweepy.OAuthHandler("u6pTX2Z7zA8wGJwpqb8KGjsow", "whgBqzOxiCMxJtHXeooEHZtFMvdhzcG8Jj0TiQjixV20ucDtMU")
-auth.set_access_token("1379804667471933442-qVm0G3ZIf7BYMjiqaDWO8gU8rT2pvm",
-                      "yUCXJdsyaLJ68KxJ20VM6rrp5lP7bW1t1h2WNxMJ6Q3gR")
+auth = tweepy.OAuthHandler("Y1nnAUcWmsMJDe0HmfTIKWa6t", "tDDHGd29os21TPJL1FS72zum6I4pPA3RHCseqcuA7Gv4oUqJ0A")
+auth.set_access_token("1379804667471933442-xyFNoJSZTOJl5Qigk2VKLO3B1vdO1j",
+                      "2esF5GB4YmLf8ACKLT4UEOHg7CJ60gPh1277FgzCSAbrI")
 
 # Create API object
 api = tweepy.API(auth)
@@ -31,7 +31,7 @@ while True:
         time_frame = "Good Evening"
     else:
         time_frame = "Good Night"
-
+    rand_user = ["@lordyiming", "@_Veteranjr"]
     rand_text = ["I hope you're a better man today.", "how are you doing today?", "This is fun ahahah.",
                  "I took %d shits since the beginning." % count_shits, "I have %d shits to clean" % count_shits,
                  "I feel %d kg lighter since the beginning of this project." % count_shits, "uhhh?",
@@ -59,22 +59,27 @@ while True:
                 "foul-smelling", "evil-smelling", "stinking", "stinking to high heaven", "reeking", "fetid",
                 "malodorous", "pungent", "acrid", "rank", "putrid", "noxious", "gamy", "gorgeous", "king"]
 
+    random_user = random.choice(rand_user)
     try:
-        api.update_status("%s %s @lordyiming, %s" % (time_frame, random.choice(rand_adj), random.choice(rand_text)))
+        api.update_status("%s %s %s, %s" % (time_frame,  random.choice(rand_adj), random_user
+                          , random.choice(rand_text)))
     except tweepy.TweepError as e:
         if e.api_code == 187:
             count_error += 1
-            api.update_status("%s %s @lordyiming, %s originality: - %d " % (time_frame, random.choice(rand_adj),
-                                                                            random.choice(rand_text), count_error))
+            api.update_status("%s %s %s, %s originality: - %d " % (time_frame, random.choice(rand_adj), random_user
+                                                                   , random.choice(rand_text),
+                                                                   count_error))
         else:
             pass
+        print(e)
 
-    sleeping_time = random.randint(30, 240)
+    sleeping_time = random.randint(15, 45)
 
     count_shits += 1
     count += 1
-
-    print("Amount of shit posted : %d" % count)
+    print()
+    print("Amount of shit posted: %d" % count)
+    print("User: ", random_user)
     print("Sleeping time: %d s\n-----------------------" % sleeping_time)
     time.sleep(sleeping_time)
 
