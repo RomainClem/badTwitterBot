@@ -3,10 +3,14 @@ import time
 import random
 from datetime import datetime
 
+CONSUMER_KEY = ""
+CONSUMER_SECRET = ""
+ACCESS_TOKEN = ""
+ACCESS_TOKEN_SECRET = ""
+
 # Authenticate to Twitter
-auth = tweepy.OAuthHandler("Y1nnAUcWmsMJDe0HmfTIKWa6t", "tDDHGd29os21TPJL1FS72zum6I4pPA3RHCseqcuA7Gv4oUqJ0A")
-auth.set_access_token("1379804667471933442-xyFNoJSZTOJl5Qigk2VKLO3B1vdO1j",
-                      "2esF5GB4YmLf8ACKLT4UEOHg7CJ60gPh1277FgzCSAbrI")
+auth = tweepy.OAuthHandler("CONSUMER_KEY", "CONSUMER_SECRET")
+auth.set_access_token("ACCESS_TOKEN", "ACCESS_TOKEN_SECRET")
 
 # Create API object
 api = tweepy.API(auth)
@@ -31,7 +35,7 @@ while True:
         time_frame = "Good Evening"
     else:
         time_frame = "Good Night"
-    rand_user = ["@lordyiming", "@_Veteranjr"]
+    rand_user = ["@lordyiming"]
     rand_text = ["I hope you're a better man today.", "how are you doing today?", "This is fun ahahah.",
                  "I took %d shits since the beginning." % count_shits, "I have %d shits to clean" % count_shits,
                  "I feel %d kg lighter since the beginning of this project." % count_shits, "uhhh?",
@@ -67,11 +71,14 @@ while True:
         if e.api_code == 187:
             count_error += 1
             api.update_status("%s %s %s, %s originality: - %d " % (time_frame, random.choice(rand_adj), random_user
-                                                                   , random.choice(rand_text),
-                                                                   count_error))
+                                                                   , random.choice(rand_text), count_error))
+        elif e.api_code == 261:
+            print("The end, lol")
+            print(e)
+            break
         else:
+            print(e)
             pass
-        print(e)
 
     sleeping_time = random.randint(15, 45)
 
