@@ -3,14 +3,14 @@ import time
 import random
 from datetime import datetime
 
-CONSUMER_KEY = ""
-CONSUMER_SECRET = ""
-ACCESS_TOKEN = ""
-ACCESS_TOKEN_SECRET = ""
+CONSUMER_KEY = "ly8rpEKTe7clAhSYoiSDz0b9S"
+CONSUMER_SECRET = "jSOHhNgTAQfLG5ev3g1jkFE18VGBk2hSZ2fcxW7qnA1bvky3G8"
+ACCESS_TOKEN = "1379804667471933442-onHRDixTklpFjnVW2hjY8nuZ2FTCTi"
+ACCESS_TOKEN_SECRET = "tawVduygPYvWGD5uztJbqBFHZzneJX0jFRcvTGPGlEroQ"
 
 # Authenticate to Twitter
-auth = tweepy.OAuthHandler("CONSUMER_KEY", "CONSUMER_SECRET")
-auth.set_access_token("ACCESS_TOKEN", "ACCESS_TOKEN_SECRET")
+auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 
 # Create API object
 api = tweepy.API(auth)
@@ -80,7 +80,7 @@ while True:
             print(e)
             pass
 
-    sleeping_time = random.randint(15, 45)
+    sleeping_time = random.randint(61, 484)
 
     count_shits += 1
     count += 1
