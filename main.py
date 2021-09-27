@@ -3,10 +3,10 @@ import time
 import random
 from datetime import datetime
 
-CONSUMER_KEY = "ly8rpEKTe7clAhSYoiSDz0b9S"
-CONSUMER_SECRET = "jSOHhNgTAQfLG5ev3g1jkFE18VGBk2hSZ2fcxW7qnA1bvky3G8"
-ACCESS_TOKEN = "1379804667471933442-onHRDixTklpFjnVW2hjY8nuZ2FTCTi"
-ACCESS_TOKEN_SECRET = "tawVduygPYvWGD5uztJbqBFHZzneJX0jFRcvTGPGlEroQ"
+CONSUMER_KEY = "xxxxxxxx"
+CONSUMER_SECRET = "xxxxxxxx"
+ACCESS_TOKEN = "xxxxxxxx"
+ACCESS_TOKEN_SECRET = "xxxxxxxx"
 
 # Authenticate to Twitter
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
